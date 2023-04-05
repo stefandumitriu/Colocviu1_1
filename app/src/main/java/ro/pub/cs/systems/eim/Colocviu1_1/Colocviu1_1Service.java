@@ -23,5 +23,7 @@ public class Colocviu1_1Service extends Service {
     @Override
     public void onDestroy() {
         serviceThread.stopThread();
+        stopSelf();
+        stopForeground(true);
     }
 }

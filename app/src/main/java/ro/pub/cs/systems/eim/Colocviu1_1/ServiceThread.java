@@ -9,7 +9,6 @@ import java.util.Date;
 public class ServiceThread extends Thread {
 
     private Context context = null;
-    private boolean isRunning = true;
     private String commands;
 
     public ServiceThread(Context context, String commands) {
@@ -20,11 +19,9 @@ public class ServiceThread extends Thread {
     @Override
     public void run() {
         Log.d("[ServiceThread]", "ServiceThread has started");
-        while (isRunning) {
-            sendMessage();
-            sleep();
-        }
-        Log.d("[ServiceThread]", "ServiceThread has stopped!");
+        sleep();
+        sendMessage();
+        Log.d("[ServiceThread]", "ServiceThread has stopped");
     }
 
     private void sendMessage() {
@@ -45,6 +42,6 @@ public class ServiceThread extends Thread {
     }
 
     public void stopThread() {
-        isRunning = false;
+        this.stop();
     }
 }

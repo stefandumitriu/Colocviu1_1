@@ -108,7 +108,7 @@ public class Colocviu1_1MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        Intent serviceIntent = new Intent(this, Colocviu1_1Service.class);
+        Intent serviceIntent = new Intent(getApplicationContext(), Colocviu1_1Service.class);
         getApplicationContext().stopService(serviceIntent);
         super.onDestroy();
     }
